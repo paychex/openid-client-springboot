@@ -14,22 +14,6 @@
  * # for determining the appropriateness of using or redistributing the Work and assume
  * # any risks associated with your exercise of permissions under this License.
  */
-package com.paychex.oidc.client;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+rootProject.name = 'openid-client-springboot'
 
-/*
-	Author: Visweshwar Ganesh
-	created on 2/2/20 8:27 AM
-*/
-@SpringBootApplication
-public class Application {
-
-	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
-	}
-
-
-
-}

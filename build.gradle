@@ -1,0 +1,51 @@
+/*
+ * # Copyright 2020 Paychex, Inc.
+ * # Licensed pursuant to the terms of the Apache License, Version 2.0 (the "License");
+ * # your use of the Work is subject to the terms and conditions of the License.
+ * # You may obtain a copy of the License at
+ * #
+ * # http://www.apache.org/licenses/LICENSE-2.0
+ * #
+ * # Disclaimer of Warranty. Unless required by applicable law or agreed to in writing, Licensor
+ * # provides the Work (and each Contributor provides its Contributions) on an "AS IS" BASIS,
+ * # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied, including,
+ * # without limitation, any warranties or conditions of TITLE, NON-INFRINGEMENT,
+ * # MERCHANTABILITY, OR FITNESS FOR A PARTICULAR PURPOSE. You are solely responsible
+ * # for determining the appropriateness of using or redistributing the Work and assume
+ * # any risks associated with your exercise of permissions under this License.
+ */
+plugins {
+    id 'org.springframework.boot' version '2.2.4.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
+}
+
+group 'com.paychex.oidc.client'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+ext{
+    springBootVersion = '2.2.4.RELEASE'
+    springVersion = '5.2.1.RELEASE'
+    springSecurityVersion = '2.4.0.RELEASE'
+    thymeleafExtras = "3.0.4.RELEASE"
+}
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: "${springBootVersion}"
+
+    compile "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
+    compile group: 'org.springframework.security', name: 'spring-security-oauth2-client', version: "$springVersion"
+    compile group: 'org.springframework.security', name: 'spring-security-oauth2-jose', version: "$springVersion"
+    compile group: 'org.springframework.security', name: 'spring-security-config', version: "$springVersion"
+
+    testCompile "net.sourceforge.htmlunit:htmlunit:2.37.0"
+    testCompile "org.springframework.boot:spring-boot-starter-test:$springBootVersion"
+}
+
+bootJar {
+    mainClassName= 'com.paychex.oidc.client.Application'
+}

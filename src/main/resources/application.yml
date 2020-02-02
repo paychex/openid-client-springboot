@@ -1,0 +1,28 @@
+server:
+  port: 8080
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    org.springframework.security: INFO
+#    org.springframework.boot.autoconfigure: DEBUG
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          paychex:
+            provider: paychex
+            client-id: <Your Client ID>
+            client-secret: <Your Client Secret>
+            client-authentication-method: basic
+            authorization-grant-type: authorization_code
+            scope:
+              - openid
+              - email
+              - profile
+            redirect-uri:
+        provider:
+          paychex:
+            issuer-uri: https://oidc.paychex.com
+
