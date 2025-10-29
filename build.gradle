@@ -24,11 +24,7 @@ group 'com.paychex.oidc.client'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 17
-ext{
-    springBootVersion = '3.2.0'
-    springSecurityVersion = '6.2.0'
-    thymeleafExtras = "3.1.2.RELEASE"
-}
+
 repositories {
     mavenCentral()
 }
