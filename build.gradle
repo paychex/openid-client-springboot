@@ -15,37 +15,37 @@
  * # any risks associated with your exercise of permissions under this License.
  */
 plugins {
-    id 'org.springframework.boot' version '2.2.4.RELEASE'
-    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'org.springframework.boot' version '3.2.0'
+    id 'io.spring.dependency-management' version '1.1.4'
     id 'java'
 }
 
 group 'com.paychex.oidc.client'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = 1.8
+sourceCompatibility = 17
 ext{
-    springBootVersion = '2.2.4.RELEASE'
-    springVersion = '5.2.1.RELEASE'
-    springSecurityVersion = '2.4.0.RELEASE'
-    thymeleafExtras = "3.0.4.RELEASE"
+    springBootVersion = '3.2.0'
+    springSecurityVersion = '6.2.0'
+    thymeleafExtras = "3.1.2.RELEASE"
 }
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: "${springBootVersion}"
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+    
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.htmlunit:htmlunit:3.9.0'
+}
 
-    compile "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
-    compile group: 'org.springframework.security', name: 'spring-security-oauth2-client', version: "$springVersion"
-    compile group: 'org.springframework.security', name: 'spring-security-oauth2-jose', version: "$springVersion"
-    compile group: 'org.springframework.security', name: 'spring-security-config', version: "$springVersion"
-
-    testCompile "net.sourceforge.htmlunit:htmlunit:2.37.0"
-    testCompile "org.springframework.boot:spring-boot-starter-test:$springBootVersion"
+tasks.named('test') {
+    useJUnitPlatform()
 }
 
 bootJar {
-    mainClassName= 'com.paychex.oidc.client.Application'
+    mainClass = 'com.paychex.oidc.client.Application'
 }
