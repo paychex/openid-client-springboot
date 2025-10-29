@@ -29,6 +29,7 @@ ext{
     springVersion = '5.2.1.RELEASE'
     springSecurityVersion = '2.4.0.RELEASE'
     thymeleafExtras = "3.0.4.RELEASE"
+    log4jVersion = "2.25.2"
 }
 repositories {
     mavenCentral()
@@ -41,6 +42,10 @@ dependencies {
     compile group: 'org.springframework.security', name: 'spring-security-oauth2-client', version: "$springVersion"
     compile group: 'org.springframework.security', name: 'spring-security-oauth2-jose', version: "$springVersion"
     compile group: 'org.springframework.security', name: 'spring-security-config', version: "$springVersion"
+
+    // Override log4j version to latest stable release
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: "${log4jVersion}"
+    compile group: 'org.apache.logging.log4j', name: 'log4j-to-slf4j', version: "${log4jVersion}"
 
     testCompile "net.sourceforge.htmlunit:htmlunit:2.37.0"
     testCompile "org.springframework.boot:spring-boot-starter-test:$springBootVersion"
